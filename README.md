@@ -2,26 +2,45 @@
 
 > Port of tabler/tabler-icons to a more React-friendly component library.
 
-[![NPM](https://img.shields.io/npm/v/react-tabler-icons.svg)](https://www.npmjs.com/package/react-tabler-icons) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+![GitHub](https://img.shields.io/github/license/alex-bello/react-tabler-icons)
+![npm (scoped)](https://img.shields.io/npm/v/@alex-bello/react-tabler-icons)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Install
 
 ```bash
-npm install --save react-tabler-icons
+npm i --save @alex-bello/react-tabler-icons
 ```
 
-## Usage
+## Examples
+
+### Using the `Icon` wrapper component
 
 ```jsx
-import React, { Component } from 'react'
+import React from "react";
+import { Icon, TablerIcons } from "react-tabler-icons";
 
-import MyComponent from 'react-tabler-icons'
-import 'react-tabler-icons/dist/index.css'
+const UsingCollection = () => {
+  return (
+    <div>
+      <Icon name="Arrow" />
+    </div>
+  );
+};
+```
 
-class Example extends Component {
-  render() {
-    return <MyComponent />
-  }
+### Using the `TablerIcons` collection
+
+```jsx
+import React from "react";
+import { Icon, TablerIcons } from "react-tabler-icons";
+
+const UsingWrapper = () => {
+  return (
+    <div>
+      <TablerIcons.Arrow />
+    </div>
+  );
 }
 ```
 

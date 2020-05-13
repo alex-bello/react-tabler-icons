@@ -1,0 +1,94 @@
+.demo-icon-preview {
+  position: sticky;
+  top: 0;
+
+  svg {
+    width: 100%;
+    height: auto;
+    stroke-width: 1.5;
+    max-width: 15rem;
+    margin: 0 auto;
+    display: block;
+  }
+}
+
+.icon {
+  width: 1.5em;
+  height: 1.5rem;
+  font-size: 1rem;
+  vertical-align: text-bottom;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+  
+.icon-thin {
+  stroke-width: 1.5;
+}
+  
+.icon-md {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.icon-lg {
+  width: 2rem;
+  height: 2rem;
+}
+
+.icon-xl {
+  width: 4rem;
+  height: 4rem;
+
+  &.icon-thin {
+    stroke-width: 1;
+  }
+}
+
+.icons-list {
+  display: inline-flex;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0 -2px -1px 0;
+  list-style: none;
+
+  > li {
+    flex: 1 0 4rem;
+  }
+}
+
+.icons-list-wrap {
+  overflow: hidden;
+  display: block;
+}
+
+.icons-list-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 4rem;
+  width: 4rem;
+  text-align: center;
+  border-right: 1px solid $border-color;
+  border-bottom: 1px solid $border-color;
+
+  i {
+    font-size: 1.25rem;
+  }
+}
+
+.icon-list-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(64px, auto));
+  grid-auto-rows: minmax(64px, auto);
+  border-top: 1px solid $border-color;
+  border-left: 1px solid $border-color;
+}
+
+.icon-list-item {
+  text-align: center;
+  padding-top: 25%;
+  border-right: 1px solid $border-color;
+  border-bottom: 1px solid $border-color;
+}

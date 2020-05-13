@@ -1,0 +1,14 @@
+import React from "react";
+import PropTypes from "prop-types";
+
+export const {{componentName}} = ({ height, stroke, width }) => {
+  return (
+    {{{fileContents}}}
+  );
+};
+
+{{componentName}}.propTypes = {
+  height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  stroke: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+};

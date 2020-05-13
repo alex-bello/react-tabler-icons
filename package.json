@@ -1,53 +1,77 @@
 {
-  "name": "react-tabler-icons",
-  "version": "1.0.0",
+  "name": "@alex-bello/react-tabler-icons",
+  "version": "1.0.1",
   "description": "Port of tabler/tabler-icons to a more React-friendly component library.",
   "author": "alex-bello",
   "license": "MIT",
-  "repository": "alex-bello/react-tabler-icons",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alex-bello/react-tabler-icons.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alex-bello/react-tabler-icons/issues"
+  },
+  "homepage": "https://github.com/alex-bello/react-tabler-icons#readme",
+  "source": "lib/index.js",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
-  "source": "src/index.js",
+  "browser": "dist/index.umd.js",
+  "files": [
+    "dist"
+  ],
   "engines": {
     "node": ">=10"
   },
   "scripts": {
-    "build": "microbundle-crl --no-compress --format modern,cjs",
-    "start": "microbundle-crl watch --no-compress --format modern,cjs",
-    "prepublish": "run-s build",
-    "test": "run-s test:unit test:lint test:build",
-    "test:build": "run-s build",
-    "test:lint": "eslint .",
-    "test:unit": "cross-env CI=1 react-scripts test --env=jsdom",
-    "test:watch": "react-scripts test --env=jsdom",
-    "predeploy": "cd example && npm install && npm run build",
-    "deploy": "gh-pages -d example/build"
+    "build": "run-s build:clean build:components build:library",
+    "build:clean": "node ./src/scripts/clean",
+    "build:components": "node ./src/scripts/build",
+    "build:library": "microbundle build --compress --external react --jsx React.createElement",
+    "demo": "run-s demo:clean demo:serve",
+    "demo:clean": "node ./src/scripts/clean-demo",
+    "demo:build": "parcel build example/src/index.html --out-dir ./example/dist --public-url ./",
+    "demo:serve": "parcel serve example/src/index.html --out-dir ./example/dist",
+    "demo:publish": "gh-pages -d ./examples/dist",
+    "reset": "run-s build:clean demo:clean",
+    "view-source-map": "source-map-explorer --html dist/index.js dist/index.map > source.html && source.html"
   },
   "peerDependencies": {
-    "react": "^16.0.0"
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   },
   "devDependencies": {
-    "microbundle-crl": "^0.13.10",
-    "babel-eslint": "^10.0.3",
-    "cross-env": "^7.0.2",
-    "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.7.0",
-    "eslint-config-standard": "^14.1.0",
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.6",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-export-namespace-from": "^7.8.3",
+    "@babel/plugin-proposal-object-rest-spread": "^7.9.6",
+    "@babel/plugin-syntax-jsx": "^7.8.3",
+    "@babel/plugin-transform-modules-commonjs": "^7.9.6",
+    "@babel/plugin-transform-regenerator": "^7.8.7",
+    "@babel/plugin-transform-runtime": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "babel-eslint": "^10.1.0",
+    "bootstrap": "^4.5.0",
+    "chalk": "^4.0.0",
+    "change-case": "^4.1.1",
+    "eslint": "^7.0.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-config-standard": "^14.1.1",
     "eslint-config-standard-react": "^9.2.0",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-node": "^11.0.0",
-    "eslint-plugin-prettier": "^3.1.1",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-react": "^7.17.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-standard": "^4.0.1",
-    "gh-pages": "^2.2.0",
+    "microbundle": "^0.12.0",
+    "mustache": "^4.0.1",
     "npm-run-all": "^4.1.5",
-    "prettier": "^2.0.4",
+    "parcel-bundler": "^1.12.4",
+    "prettier": "^2.0.5",
+    "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "^3.4.1"
-  },
-  "files": [
-    "dist"
-  ]
+    "source-map-explorer": "^2.4.2",
+    "tabler-icons": "^1.6.1",
+    "xml-js": "^1.6.11"
+  }
 }
